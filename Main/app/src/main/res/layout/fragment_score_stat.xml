@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:id="@+id/goalSection"
+        android:layout_below="@+id/overview"
+        android:gravity="center_vertical"
+        android:background="@drawable/greybar_player_stats">
+
+        <TextView
+           android:id="@+id/goalTitle"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+           android:text="@string/goals"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/homeGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/awayGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textSize="12dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:id="@+id/assistSection"
+        android:layout_below="@+id/goalSection"
+        android:gravity="center_vertical"
+        android:background="@drawable/greybar_player_stats">
+
+        <TextView
+            android:id="@+id/assistTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/assists"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/homeAssist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/awayAssist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textSize="12dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:id="@+id/dropSection"
+        android:layout_below="@+id/assistSection"
+        android:gravity="center_vertical"
+        android:background="@drawable/greybar_player_stats">
+
+        <TextView
+            android:id="@+id/dropTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/drops"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/homeDrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/awayDrop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textSize="12dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:id="@+id/taSection"
+        android:layout_below="@+id/dropSection"
+        android:gravity="center_vertical"
+        android:background="@drawable/greybar_player_stats">
+
+        <TextView
+            android:id="@+id/taTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/throwaways"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/homeTA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/awayTA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textSize="12dip" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="70dip"
+        android:id="@+id/dSection"
+        android:layout_below="@+id/taSection"
+        android:gravity="center_vertical"
+        android:background="@drawable/greybar_player_stats">
+
+        <TextView
+            android:id="@+id/dTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/Ds"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/homeD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:textSize="12dip" />
+
+        <TextView
+            android:id="@+id/awayD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:textSize="12dip" />
+
+    </RelativeLayout>
+</RelativeLayout>

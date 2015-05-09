@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "info.androidhive.audlandroid"
+        minSdkVersion 14
+        targetSdkVersion 18
+        versionCode 6
+        versionName "1.2.1"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'uk.co.chrisjenx:calligraphy:2.0.1'
+    compile 'joda-time:joda-time:2.3'
+    compile files('libs/graphview-3.1.jar')
+}

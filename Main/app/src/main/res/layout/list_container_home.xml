@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+<!-- Top News section -->
+
+    <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+        android:layout_weight="1">
+
+       <TextView
+           android:id="@+id/sched_list_header"
+           android:layout_width="fill_parent"
+           android:layout_height="40dp"
+           android:background="@drawable/header_secondary"
+           android:paddingLeft="20dip"
+           android:gravity="center_vertical"
+           android:textSize="12dip" />
+
+       <ListView
+           android:id="@+id/sched_listview"
+           android:layout_width="fill_parent"
+           android:layout_height="fill_parent"/>
+
+   </LinearLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/news_list_header"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/header_secondary"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:textSize="12dip" />
+
+
+        <ListView
+            android:id="@+id/news_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+    </LinearLayout>
+
+    <!-- Top Videos section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/videos_list_header"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/header_secondary"
+            android:gravity="center_vertical"
+            android:paddingLeft="20dip"
+            android:textSize="12dip" />
+
+        <ListView
+            android:id="@+id/videos_listview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+
+
+    </LinearLayout>
+<!-- Upcoming matches section -->
+
+</LinearLayout>

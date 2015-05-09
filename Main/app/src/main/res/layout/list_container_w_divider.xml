@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:id="@+id/divider"
+        android:background="@drawable/bkg_blue_bar" />
+
+    <ListView
+    android:id="@+id/listview"
+        android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+        android:layout_below="@+id/divider" />
+
+</RelativeLayout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="50dip"
+    android:orientation="horizontal">
+
+    <!--  ListRow Left sied Thumbnail image -->
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:id="@+id/background"
+        android:background="@drawable/greybar_player_stats" />
+
+    <TextView
+        android:id="@+id/lblListItemVal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dip"
+        android:layout_alignParentRight="true"
+        android:textSize="14dip" />
+
+    <TextView
+        android:id="@+id/lblListItem"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dip"
+        android:layout_toLeftOf="@+id/player_id"
+        android:textSize="14dip" />
+
+
+</RelativeLayout>

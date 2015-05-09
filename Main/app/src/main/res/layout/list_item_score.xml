@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:background="@drawable/header_secondary"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dip" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="90dip"
+        android:layout_below="@+id/separator"
+        android:background="@drawable/greybar_nodiv">
+
+        <RelativeLayout
+            android:layout_width="52dip"
+            android:layout_height="52dp"
+            android:id="@+id/hTeam"
+            android:layout_marginLeft="9dip"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/hTeamStroke"
+                android:src="@drawable/winner_outline" />
+
+            <ImageView
+                android:id="@+id/hTeamIcon"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="52dip"
+            android:layout_height="52dip"
+            android:id="@+id/aTeam"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="9dip"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/aTeamStroke"
+                android:src="@drawable/winner_outline" />
+
+            <ImageView
+                android:id="@+id/aTeamIcon"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/hTeam"
+            android:layout_toLeftOf="@+id/aTeam">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="45dip"
+                android:id="@+id/divider"
+                android:src="@drawable/scoreboard_div"
+                android:layout_centerInParent="true" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_toLeftOf="@+id/divider"
+                android:layout_alignTop="@+id/divider"
+                android:layout_alignBottom="@+id/divider">
+
+                <TextView
+                    android:id="@+id/homeTeamName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="false"
+                    android:layout_marginRight="20dip"
+                    android:layout_alignParentRight="true"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/homeTeamScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_below="@+id/homeTeamName"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dip"
+                    android:textSize="24dip" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_toRightOf="@+id/divider"
+                android:layout_alignBottom="@+id/divider"
+                android:layout_alignTop="@+id/divider">
+
+                <TextView
+                    android:id="@+id/awayTeamName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="false"
+                    android:layout_marginLeft="20dip"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/awayTeamScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:layout_below="@+id/awayTeamName"
+                    android:layout_marginLeft="20dip"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="24dip" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/game_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/divider"
+                android:textSize="12dip" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/list_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:id="@+id/sectionTitle">
+
+        <TextView
+            android:id="@+id/list_header"
+            android:layout_width="fill_parent"
+            android:layout_height="50dip"
+            android:background="@drawable/header_plain"
+            android:gravity="center"
+            android:textSize="18dip" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/east"
+            android:src="@drawable/east_on"
+            android:padding="10dip"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/midwest"
+            android:src="@drawable/midwest_on"
+            android:padding="10dip"
+            android:layout_toRightOf="@+id/east" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/west"
+            android:src="@drawable/west_on"
+            android:padding="10dip"
+            android:layout_toLeftOf="@+id/south" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/south"
+            android:src="@drawable/south_on"
+            android:layout_alignParentRight="true"
+            android:padding="10dip" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:id="@+id/divider"
+        android:background="@drawable/bkg_blue_bar"
+        android:layout_below="@+id/sectionTitle" />
+
+    <ListView
+    android:id="@+id/listview"
+        android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+        android:layout_below="@+id/divider" />
+
+</RelativeLayout>

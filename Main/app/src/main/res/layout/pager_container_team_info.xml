@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:id="@+id/header">
+
+        <TextView
+            android:id="@+id/list_header"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/header_plain"
+            android:gravity="center"
+            android:textSize="18dip" />
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:id="@+id/east"
+            android:layout_marginLeft="10dip"
+            android:layout_marginTop="10dip"
+            android:src="@drawable/east_off" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:id="@+id/midwest"
+            android:layout_marginLeft="50dip"
+            android:layout_marginTop="10dip"
+            android:src="@drawable/midwest_off" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:id="@+id/west"
+            android:layout_marginTop="10dip"
+            android:layout_gravity="right"
+            android:layout_marginRight="50dip"
+            android:src="@drawable/west_off"
+            android:layout_alignParentRight="true" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:id="@+id/south"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dip"
+            android:layout_marginRight="10dip"
+            android:src="@drawable/south_off"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header"
+        android:layout_above="@+id/footer">
+
+    </android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dip"
+        android:background="@drawable/icons_bar"
+        android:id="@+id/footer"
+        android:layout_alignParentBottom="true"
+        android:baselineAligned="false">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/icon_scoreboard"
+            android:src="@drawable/icon_scoreboard_off"
+            android:layout_weight="1"
+            android:padding="10dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/icon_schedule"
+            android:src="@drawable/icon_schedule_off"
+            android:layout_weight="1"
+            android:padding="10dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/icon_statistics"
+            android:src="@drawable/icon_statistics_off"
+            android:layout_weight="1"
+            android:padding="10dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dip"
+            android:id="@+id/icon_roster"
+            android:src="@drawable/icon_roster_off"
+            android:layout_weight="1"
+            android:padding="10dip" />
+
+    </LinearLayout>
+
+</RelativeLayout>
