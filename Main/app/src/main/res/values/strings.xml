@@ -11,7 +11,7 @@
     <string name="labelWins">W</string>
     <string name="labelLosses">L</string>
     <string name="labelPointsDiff">PD</string>
-    <string name="ServerURL">http://ec2-54-86-111-95.compute-1.amazonaws.com:4001</string>
+    <string name="ServerURL">http://52.7.194.101:4002</string>
     <string name="UltimateTeamStatsURL">http://www.ultimate-numbers.com/team/</string>
     <string name="ShopURL">http://shop.theaudl.com/</string>
     <string name="topPlayers">TEAM LEADERS</string>
@@ -22,6 +22,7 @@
     <string name="Ds">Ds</string>
     <string name="finals">FINAL</string>
     <string name="graphUnavalaible">Graph is currently unavailable</string>
+    <string name="gcm_defaultSenderId">447710219727</string>
     <!-- Nav Drawer Menu Items -->
     <string-array name="nav_drawer_items">
         <item >HOME</item>

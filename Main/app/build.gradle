@@ -8,9 +8,8 @@ android {
         applicationId "info.androidhive.audlandroid"
         minSdkVersion 14
         targetSdkVersion 18
-        versionCode 6
-        versionName "1.2.1"
-
+        versionCode 8
+        versionName "1.3.2"
     }
 
     buildTypes {
@@ -27,4 +26,5 @@ dependencies {
     compile 'uk.co.chrisjenx:calligraphy:2.0.1'
     compile 'joda-time:joda-time:2.3'
     compile files('libs/graphview-3.1.jar')
+    compile "com.google.android.gms:play-services-gcm:8.4.0"
 }

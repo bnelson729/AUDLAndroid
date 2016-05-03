@@ -23,14 +23,6 @@
         android:logo="@drawable/empty"
         android:theme="@style/AppTheme"
         android:label="AUDL" >
-        <receiver
-            android:name="info.androidhive.audlandroid.receiver.GCMBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND" >
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="com.example.gcm" />
-            </intent-filter>
-        </receiver>
         <activity
             android:name="info.androidhive.audlandroid.MainActivity"
             android:screenOrientation="portrait">
@@ -39,11 +31,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-  	<!--  
-        <meta-data
-    	android:name="com.google.android.gms.version"
-    	android:value="@integer/google_play_services_version" />
-    -->
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.gcm" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
+        <!-- [START gcm_listener] -->
+        <service
+            android:name="info.androidhive.audlandroid.MyGcmListenerService"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener] -->
+        <!-- [START instanceId_listener] -->
+        <service
+            android:name="info.androidhive.audlandroid.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener] -->
+        <service
+            android:name="info.androidhive.audlandroid.RegistrationIntentService"
+            android:exported="false">
+        </service>
     </application>
 
 </manifest>

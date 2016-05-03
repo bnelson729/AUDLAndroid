@@ -84,6 +84,12 @@ public class TeamIconLoader {
         else if (id.equals("VAN")) {
             return R.drawable.team_ic_van;
         }
+        else if (id.equals("AUS")) {
+            return R.drawable.team_ic_aus;
+        }
+        else if (id.equals("DAL")) {
+            return R.drawable.team_ic_dal;
+        }
         else {
             return R.drawable.no_image;
         }
