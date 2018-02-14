@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class NewsListBaseAdapter extends BaseAdapter {
         NewsListItem news = data.get(position);
  
         // Setting all values in listview
-        title.setText(news.getNewsHeadline());
+        title.setText(Html.fromHtml(news.getNewsHeadline()));
         title.setTypeface(Typeface.createFromAsset(activity.getResources().getAssets(),"Roboto-Bold.ttf"));
         title.setTextColor(activity.getResources().getColor(R.color.dark_blue));
         datetime.setText(news.getDatetime());

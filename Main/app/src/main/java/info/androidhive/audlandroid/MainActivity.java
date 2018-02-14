@@ -2,7 +2,9 @@ package info.androidhive.audlandroid;
 
 import info.androidhive.audlandroid.adapter.NavDrawerListAdapter;
 import info.androidhive.audlandroid.interfaces.OnScoreSelectedListener;
+import info.androidhive.audlandroid.messaging.MessageSubscriber;
 import info.androidhive.audlandroid.model.NavDrawerItem;
+import info.androidhive.audlandroid.model.NotificationItem;
 import info.androidhive.audlandroid.model.ScoreListItem;
 import info.androidhive.audlandroid.model.TeamsListItem;
 import info.androidhive.audlandroid.utils.ConnectionDetector;
@@ -30,7 +32,9 @@ import android.accounts.AccountManager;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
@@ -55,6 +59,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 /*import com.google.android.gms.common.ConnectionResult;
@@ -74,12 +79,7 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
     private int mPosition;
     public int depth;
 	//private GoogleCloudMessaging gcm;
-	private String TAG="info.androidhive.audlandroid.MainActivity";
-	private String SENDER_ID = "447710219727";
-	private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-	private final static String REG_ID = "registrationID";
-	private String regId;
-	private Context context;
+    private String TAG="MainActivity";
 	// slide menu items
 	private String[] navMenuTitles;
 
@@ -127,6 +127,24 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
         // Commit the transaction
         transaction.commit();
 	}
+
+    public void onNotificationCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        NotificationItem notifItem = (NotificationItem)view.getTag();
+
+        notifItem.toggleChecked();
+
+        MessageSubscriber subscriber = new MessageSubscriber();
+        if (checked) {
+            subscriber.subscribeToTopic(this, notifItem.getTopic());
+        }
+        else {
+            subscriber.UnSubscribeToTopic(this, notifItem.getTopic());
+        }
+    }
+
 	public void onScoreSelected(ScoreListItem item){
 		ConnectionDetector cd = new ConnectionDetector(getApplicationContext());
 		boolean isInternetConnected = cd.isConnectingToInternet();
@@ -166,7 +184,16 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_USER_PORTRAIT);
+
 		setContentView(R.layout.activity_main);
+
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancelAll();
+
+        MessageSubscriber subscriber = new MessageSubscriber();
+        subscriber.subscribeToAllTopics(this);
 
         getActionBar().setBackgroundDrawable((getResources().getDrawable(R.drawable.header_greybarlogo)));
         getActionBar().setDisplayHomeAsUpEnabled(true);
@@ -182,17 +209,7 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
 		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
 		navDrawerItems = new ArrayList<String>();
-		/*if(checkPlayServices()){
-		context = getApplicationContext();
-		gcm = GoogleCloudMessaging.getInstance(this);
-		regId = getRegistrationId(context);
-		if(regId.compareTo("") == 0){
-			registerInBackground();
-		}
-		}
-		else{
-			finish();
-		}*/
+
 		// adding nav drawer items to array
 		// Home
 		navDrawerItems.add(navMenuTitles[0]);
@@ -212,10 +229,12 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
         navDrawerItems.add(navMenuTitles[7]);
 		// Stats
         navDrawerItems.add(navMenuTitles[8]);
-        // Shop
+        // Notifications
         navDrawerItems.add(navMenuTitles[9]);
-		// Settings
+		// Shop
         navDrawerItems.add(navMenuTitles[10]);
+        // Send Feedback
+        navDrawerItems.add(navMenuTitles[11]);
 
 		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
@@ -245,94 +264,7 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
 			displayView(0);
 		}
 	}
-	/*private void registerInBackground() {
-		new RegisterTask().execute(null,null,null);
-	}
 
-	private String getRegistrationId(Context context){
-		final SharedPreferences prefs = getGCMPreferences(context);
-		String registrationId = prefs.getString(REG_ID, null);
-		if(registrationId == null){
-			return "";
-		}
-		return registrationId;
-	}
-	private SharedPreferences getGCMPreferences(Context context) {
-	    return getSharedPreferences(MainActivity.class.getSimpleName(),
-	            Context.MODE_PRIVATE);
-	}*/
-	/*private boolean checkPlayServices() {
-		int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-		if(resultCode != ConnectionResult.SUCCESS){
-			if(GooglePlayServicesUtil.isUserRecoverableError(resultCode)){
-				GooglePlayServicesUtil.getErrorDialog(resultCode,this,PLAY_SERVICES_RESOLUTION_REQUEST);
-			}
-			else{
-				Log.i(TAG,"This device is not supported");
-			}
-			return false;
-		}
-		return true;
-	}
-	private class RegisterTask extends AsyncTask<Void,Void,Void>{
-		protected Void doInBackground(Void... voids){
-			String msg="";
-			try{
-				if(gcm==null){
-					gcm = GoogleCloudMessaging.getInstance(context);
-				}
-				String regid = gcm.register(SENDER_ID);
-				msg = "Device registered! Registration ID=" + regid;
-				Log.i(TAG,msg);
-				sendRegistrationIdToBackend(regid);
-				storeRegistrationId(context,regid);
-			} catch(IOException e){
-				msg = "Error :" + e.getMessage();
-			}
-			return null;
-		}
-	}
-	
-	private void storeRegistrationId(Context context, String regId){
-		SharedPreferences pref = getGCMPreferences(context);
-		Editor editor = pref.edit();
-		editor.putString(REG_ID, regId);
-		editor.commit();
-	}
-	private void sendRegistrationIdToBackend(String regId) {
-		HttpClient httpclient = new DefaultHttpClient();
-		//To be provided
-		String serverURL = getResources().getString(R.string.ServerURL);
-		HttpPost httppost = new HttpPost(serverURL);
-		List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-		Pattern emailPattern = Patterns.EMAIL_ADDRESS;
-		Account[] accounts = AccountManager.get(context).getAccounts();
-		for(Account account : accounts){
-			if(emailPattern.matcher(account.name).matches()){
-				Log.i(TAG,"regID is" + regId);
-				nameValuePairs.add(new BasicNameValuePair("regID",regId));
-				nameValuePairs.add(new BasicNameValuePair("email",account.name));
-				break;
-			}
-		}
-		try{
-			httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			HttpResponse response = httpclient.execute(httppost);
-			Log.i(TAG,"Response is" + response.getStatusLine().getReasonPhrase());
-		}
-		catch(UnsupportedEncodingException e){
-			Log.i(TAG,"Unsupported encoding Exception");
-		}
-		catch(ClientProtocolException e){
-			Log.i(TAG,"Client Protocol Exception");
-		}
-		catch(IOException e){
-			Log.i(TAG,"IO Exception");
-		}
-	}**/
-	/**
-	 * Slide menu item click listener
-	 * */
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
 		@Override
@@ -341,7 +273,7 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
 			getActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 			getActionBar().removeAllTabs();
 			// display view for selected nav drawer item
-            if (position == 9) {
+            if (position == 10) {
 
                 String ultimateURL = getResources().getString(R.string.ShopURL);
                 Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(ultimateURL));
@@ -350,7 +282,7 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
                 mDrawerList.setItemChecked(mPosition, true);
                 mDrawerList.setSelection(mPosition);
             }
-            else if (position == 10) {
+            else if (position == 11) {
 
                 Intent intent = new Intent(Intent.ACTION_VIEW);
                 intent.setData(Uri.parse("mailto:audlappdevteam@gmail.com"));
@@ -456,8 +388,8 @@ public class MainActivity extends FragmentActivity implements OnTeamSelectedList
 		case 8:
 			fragment = new StatsListFragment();
 			break;
-		case 10:
-			fragment = new SettingsFragment();
+		case 9:
+			fragment = new NotificationFragment();
 			break;
 
 		default:

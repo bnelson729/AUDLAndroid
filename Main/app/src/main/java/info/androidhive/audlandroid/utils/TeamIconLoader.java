@@ -6,6 +6,12 @@ import info.androidhive.audlandroid.R;
  */
 public class TeamIconLoader {
     public int get(String id) {
+        if (id.equals("GENERAL")) {
+            return R.drawable.ic_launcher;
+        }
+        if (id.equals("TEST")) {
+            return R.drawable.ic_launcher;
+        }
         if (id.equals("ATL")) {
             return R.drawable.team_ic_atl;
         }

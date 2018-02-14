@@ -11,4 +11,5 @@
     <color name="white_text">#eff0f0</color>
     <color name="graph_home">#e31b23</color>
     <color name="graph_away">#0069aa</color>
+    <color name="default_notification">#0064a3</color>
 </resources>
