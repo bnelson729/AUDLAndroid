@@ -11,7 +11,7 @@
     <string name="labelWins">W</string>
     <string name="labelLosses">L</string>
     <string name="labelPointsDiff">PD</string>
-    <string name="ServerURL">https://audl-stat-server.herokuapp.com/aa/</string>
+    <string name="ServerURL">https://audl-stat-server.herokuapp.com/aa</string>
     <string name="UltimateTeamStatsURL">http://www.ultimate-numbers.com/team/</string>
     <string name="ShopURL">http://shop.theaudl.com/</string>
     <string name="topPlayers">TEAM LEADERS</string>
