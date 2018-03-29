@@ -21,7 +21,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/homeGoal"
+            android:id="@+id/awayGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -29,7 +29,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/awayGoal"
+            android:id="@+id/homeGoal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -55,7 +55,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/homeAssist"
+            android:id="@+id/awayAssist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -63,7 +63,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/awayAssist"
+            android:id="@+id/homeAssist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -89,7 +89,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/homeDrop"
+            android:id="@+id/awayDrop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -97,7 +97,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/awayDrop"
+            android:id="@+id/homeDrop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -123,7 +123,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/homeTA"
+            android:id="@+id/awayTA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -131,7 +131,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/awayTA"
+            android:id="@+id/homeTA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -157,7 +157,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/homeD"
+            android:id="@+id/awayD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -165,7 +165,7 @@
             android:textSize="12dip" />
 
         <TextView
-            android:id="@+id/awayD"
+            android:id="@+id/homeD"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

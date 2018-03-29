@@ -42,15 +42,15 @@
         <ImageView
             android:layout_width="10dip"
             android:layout_height="10dip"
-            android:id="@+id/homeColor"
-            android:background="@color/graph_home"
+            android:id="@+id/awayColor"
+            android:background="@color/graph_away"
             android:layout_marginLeft="40dip"
             android:layout_gravity="center_vertical" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/legendHome"
+            android:id="@+id/legendAway"
             android:layout_marginLeft="10dip"
             android:layout_gravity="center_vertical"
             android:textSize="12dip" />
@@ -58,15 +58,15 @@
         <ImageView
             android:layout_width="10dip"
             android:layout_height="10dip"
-            android:id="@+id/awayColor"
-            android:background="@color/graph_away"
+            android:id="@+id/homeColor"
+            android:background="@color/graph_home"
             android:layout_marginLeft="20dip"
             android:layout_gravity="center_vertical" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/legendAway"
+            android:id="@+id/legendHome"
             android:layout_marginLeft="10dip"
             android:layout_gravity="center_vertical"
             android:textSize="12dip" />

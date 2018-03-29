@@ -33,7 +33,7 @@ public class NotificationFragment extends Fragment {
 		ArrayList<NotificationItem> notificationList = new ArrayList<NotificationItem>();
 		MessageSubscriber subscriber = new MessageSubscriber();
 		String[] topicList = subscriber.getTopicList(activity);
-		notificationList.add(new NotificationItem("Test",activity.getResources().getString(R.string.testSubscribe),Arrays.asList(topicList).contains(activity.getResources().getString(R.string.testSubscribe))));
+		// notificationList.add(new NotificationItem("Test",activity.getResources().getString(R.string.testSubscribe),Arrays.asList(topicList).contains(activity.getResources().getString(R.string.testSubscribe))));
 
 		notificationList.add(new NotificationItem("General",activity.getResources().getString(R.string.genSubscribe),Arrays.asList(topicList).contains(activity.getResources().getString(R.string.genSubscribe))));
 

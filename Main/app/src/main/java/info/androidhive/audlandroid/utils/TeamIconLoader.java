@@ -96,6 +96,9 @@ public class TeamIconLoader {
         else if (id.equals("DAL")) {
             return R.drawable.team_ic_dal;
         }
+        else if (id.equals("TB")) {
+            return R.drawable.team_ic_tb;
+        }
         else {
             return R.drawable.no_image;
         }
