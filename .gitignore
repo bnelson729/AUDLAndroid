@@ -11,3 +11,4 @@ Main/gradle
 .metadata
 
 .idea
+*.apk
